@@ -1,0 +1,58 @@
+#menu-bar{
+    display: none;
+}
+
+header label{/*icono del menu*/
+    float: right;
+    font-size: 28px;/*le doy mas tamaño al icono*/
+    margin: 6px 0;
+    cursor: pointer;
+}
+
+.menu{/**/
+    position: absolute;
+    top: 50px;/*para que arranque de abajo del header*/
+    left: 0;/*para que arranque de la izquierda*/
+    width: 100%;
+    height: 100vh;
+    background: rgba(51, 51, 51, 0.9);
+    transition: all 0.5s; /*para ver como se desplaza el menu*/
+    transform: translateX(-100%);/*para que se desplaze horizontalmente y el -100 de izquierda a derecha*/
+
+
+}
+
+.menu a{
+    display: block;/*pongo los a uno abajo del otro*/
+    color: #fff;
+    height: 50px;
+    text-decoration: none;
+    padding: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);/*las lineas que dividen el menu*/
+}
+
+.menu a:hover{
+    background: rgba(255, 255, 255, 0.3);
+}
+
+#menu-bar:checked ~ .menu{ /*pseudo clase checked para cuando preciono el input checkbox me selecione el menu */
+    transform: translateX(0);/*ahora digo que el menu aparezca, no lo habia escondido con display none, sino con transform:translate()*/
+}
+
+@media (min-width:1024px){
+    .menu {
+        position: static;
+        width: auto;
+        height: auto;
+        transform: translateX(0%);
+        float: right;
+        display: flex;
+    }
+    .menu a{
+        border: none;
+    }
+
+    header label{
+        display: none;
+    }
+}
